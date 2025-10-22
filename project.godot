@@ -13,10 +13,10 @@ config_version=5
 config/name="isoland"
 run/main_scene="uid://dfkbbhiljwdxq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/show_image=false
-boot_splash/fullsize=false
-boot_splash/use_filter=false
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.08235294, 0.48235294, 0.4627451, 1)
+boot_splash/image="uid://c7ukd8fdkf2w0"
+config/icon="uid://div1kbdfkg4gv"
+config/windows_native_icon="res://Assert/Ico/ico.ico"
 
 [autoload]
 
@@ -26,13 +26,19 @@ SceneChanger="*res://Scene/scene_changer.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/initial_position_type=4
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Scripts/": "orange"
+}
 
 [input]
 
-Interact={
+interact={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
