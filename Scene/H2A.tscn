@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://n6sohamcj6nq"]
+
+[ext_resource type="PackedScene" uid="uid://or1tl7niiio" path="res://Scene/scencebase.tscn" id="1_0hns6"]
+[ext_resource type="Script" uid="uid://bsifaj80mr7h8" path="res://Scripts/Ineractable/Teleporter.gd" id="2_d62xf"]
+[ext_resource type="Texture2D" uid="uid://b6lf8luy4xtpv" path="res://Assert/H2A/roomsignBG.png" id="2_ftun1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dswhy"]
+radius = 71.02816
+
+[node name="Scence" instance=ExtResource("1_0hns6")]
+
+[node name="BackGround" parent="." index="0"]
+texture = ExtResource("2_ftun1")
+
+[node name="ToH2" type="Area2D" parent="BackGround" index="0"]
+position = Vector2(-802, -431)
+script = ExtResource("2_d62xf")
+target_path = "uid://di0flmox7r41m"
+metadata/_custom_type_script = "uid://bsifaj80mr7h8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/ToH2" index="0"]
+shape = SubResource("CircleShape2D_dswhy")
