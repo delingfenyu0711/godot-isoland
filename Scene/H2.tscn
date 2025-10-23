@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://di0flmox7r41m"]
+[gd_scene load_steps=17 format=3 uid="uid://di0flmox7r41m"]
 
 [ext_resource type="PackedScene" uid="uid://or1tl7niiio" path="res://Scene/scencebase.tscn" id="1_8y3oh"]
 [ext_resource type="Texture2D" uid="uid://cwa76inw7eknd" path="res://Assert/H2/H2.png" id="2_jeusa"]
@@ -12,8 +12,6 @@
 [ext_resource type="Script" uid="uid://deh7s74e8vn8f" path="res://Scripts/Tool/Scene/Items/SceneItem.gd" id="10_q27ed"]
 [ext_resource type="Resource" uid="uid://bojenadi3oxu1" path="res://Assert/Items/key.tres" id="11_b33nw"]
 [ext_resource type="Texture2D" uid="uid://cl0judnmbjbtv" path="res://Assert/H2/key.png" id="12_l4453"]
-[ext_resource type="Resource" uid="uid://c8u6w8jhhln08" path="res://Assert/Items/mail.tres" id="13_1deim"]
-[ext_resource type="Texture2D" uid="uid://lv7kwxxefxph" path="res://Assert/H4/mail_piece.png" id="14_av16n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeusa"]
 size = Vector2(316, 540.75)
@@ -65,6 +63,7 @@ shape = SubResource("RectangleShape2D_vltvp")
 [node name="Granny" type="Area2D" parent="BackGround" index="3"]
 position = Vector2(-390, -44)
 script = ExtResource("5_5n4x1")
+allow_item = true
 metadata/_custom_type_script = "uid://c1o4ytlwc1w6w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/Granny" index="0"]
@@ -105,18 +104,12 @@ base_energy = 1.0
 base_color = Color(0.509193, 0.277759, 3.85046e-07, 1)
 metadata/_edit_lock_ = true
 
-[node name="SceneItem" type="Area2D" parent="BackGround" index="6"]
-position = Vector2(144, 93)
+[node name="Key" type="Area2D" parent="BackGround" index="6"]
+position = Vector2(78, 482)
 script = ExtResource("10_q27ed")
 item = ExtResource("11_b33nw")
 texture = ExtResource("12_l4453")
-metadata/_custom_type_script = "uid://deh7s74e8vn8f"
-
-[node name="SceneItem2" type="Area2D" parent="BackGround" index="7"]
-position = Vector2(-104, 113)
-script = ExtResource("10_q27ed")
-item = ExtResource("13_1deim")
-texture = ExtResource("14_av16n")
+allow_item = null
 metadata/_custom_type_script = "uid://deh7s74e8vn8f"
 
 [connection signal="interact" from="BackGround/Granny" to="BackGround" method="_on_granny_interact"]
