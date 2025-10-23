@@ -1,14 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://di0flmox7r41m"]
+[gd_scene load_steps=19 format=3 uid="uid://di0flmox7r41m"]
 
 [ext_resource type="PackedScene" uid="uid://or1tl7niiio" path="res://Scene/scencebase.tscn" id="1_8y3oh"]
 [ext_resource type="Texture2D" uid="uid://cwa76inw7eknd" path="res://Assert/H2/H2.png" id="2_jeusa"]
 [ext_resource type="Script" uid="uid://bsifaj80mr7h8" path="res://Scripts/Ineractable/Teleporter.gd" id="2_vltvp"]
 [ext_resource type="Script" uid="uid://wd4is2tmjgsx" path="res://Scripts/UI/Scence/H2.gd" id="3_o0c2q"]
 [ext_resource type="Script" uid="uid://c1o4ytlwc1w6w" path="res://Scripts/Ineractable/Interactable.gd" id="5_5n4x1"]
-[ext_resource type="PackedScene" uid="uid://45j8s88nje65" path="res://UI/DialogBubble.tscn" id="6_sry3j"]
+[ext_resource type="PackedScene" uid="uid://45j8s88nje65" path="res://Scene/UI/DialogBubble.tscn" id="6_sry3j"]
 [ext_resource type="Texture2D" uid="uid://bvuexciqak3pg" path="res://Assert/Texture/Light.png" id="7_sry3j"]
-[ext_resource type="Script" uid="uid://dlyc2t0mc3jxc" path="res://Scripts/Tool/Scene/TVlight.gd" id="8_5w5op"]
-[ext_resource type="Script" uid="uid://cayql6icemo7" path="res://Scripts/Tool/Scene/Firelight.gd" id="9_5w5op"]
+[ext_resource type="Script" uid="uid://dlyc2t0mc3jxc" path="res://Scripts/Tool/Scene/Light/TVlight.gd" id="8_5w5op"]
+[ext_resource type="Script" uid="uid://cayql6icemo7" path="res://Scripts/Tool/Scene/Light/Firelight.gd" id="9_5w5op"]
+[ext_resource type="Script" uid="uid://deh7s74e8vn8f" path="res://Scripts/Tool/Scene/Items/SceneItem.gd" id="10_q27ed"]
+[ext_resource type="Resource" uid="uid://bojenadi3oxu1" path="res://Assert/Items/key.tres" id="11_b33nw"]
+[ext_resource type="Texture2D" uid="uid://cl0judnmbjbtv" path="res://Assert/H2/key.png" id="12_l4453"]
+[ext_resource type="Resource" uid="uid://c8u6w8jhhln08" path="res://Assert/Items/mail.tres" id="13_1deim"]
+[ext_resource type="Texture2D" uid="uid://lv7kwxxefxph" path="res://Assert/H4/mail_piece.png" id="14_av16n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeusa"]
 size = Vector2(316, 540.75)
@@ -81,6 +86,7 @@ color = Color(0.14044756, 0.14044741, 0.14044744, 1)
 texture = ExtResource("7_sry3j")
 script = ExtResource("8_5w5op")
 base_energy = 0.75
+metadata/_edit_lock_ = true
 
 [node name="FireNode" type="Control" parent="BackGround" index="5"]
 layout_mode = 3
@@ -89,6 +95,7 @@ offset_left = -230.0
 offset_top = -92.0
 offset_right = -190.0
 offset_bottom = -52.0
+metadata/_edit_lock_ = true
 
 [node name="Firelight" type="PointLight2D" parent="BackGround/FireNode" index="0"]
 color = Color(0.14044756, 0.14044741, 0.14044744, 1)
@@ -96,5 +103,20 @@ texture = ExtResource("7_sry3j")
 script = ExtResource("9_5w5op")
 base_energy = 1.0
 base_color = Color(0.509193, 0.277759, 3.85046e-07, 1)
+metadata/_edit_lock_ = true
+
+[node name="SceneItem" type="Area2D" parent="BackGround" index="6"]
+position = Vector2(144, 93)
+script = ExtResource("10_q27ed")
+item = ExtResource("11_b33nw")
+texture = ExtResource("12_l4453")
+metadata/_custom_type_script = "uid://deh7s74e8vn8f"
+
+[node name="SceneItem2" type="Area2D" parent="BackGround" index="7"]
+position = Vector2(-104, 113)
+script = ExtResource("10_q27ed")
+item = ExtResource("13_1deim")
+texture = ExtResource("14_av16n")
+metadata/_custom_type_script = "uid://deh7s74e8vn8f"
 
 [connection signal="interact" from="BackGround/Granny" to="BackGround" method="_on_granny_interact"]

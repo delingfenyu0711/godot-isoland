@@ -14,13 +14,17 @@ config/name="isoland"
 run/main_scene="uid://dfkbbhiljwdxq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.08235294, 0.48235294, 0.4627451, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 boot_splash/image="uid://c7ukd8fdkf2w0"
 config/icon="uid://div1kbdfkg4gv"
 config/windows_native_icon="res://Assert/Ico/ico.ico"
 
 [autoload]
 
-SceneChanger="*res://Scene/scene_changer.tscn"
+SceneChanger="*res://Scene/UI/scene_changer.tscn"
+Game="*res://Scripts/Ineractable/Game.gd"
 
 [display]
 
