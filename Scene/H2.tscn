@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://di0flmox7r41m"]
+[gd_scene load_steps=19 format=3 uid="uid://di0flmox7r41m"]
 
 [ext_resource type="PackedScene" uid="uid://or1tl7niiio" path="res://Scene/scencebase.tscn" id="1_8y3oh"]
 [ext_resource type="Texture2D" uid="uid://cwa76inw7eknd" path="res://Assert/H2/H2.png" id="2_jeusa"]
 [ext_resource type="Script" uid="uid://bsifaj80mr7h8" path="res://Scripts/Ineractable/Teleporter.gd" id="2_vltvp"]
 [ext_resource type="Script" uid="uid://wd4is2tmjgsx" path="res://Scripts/UI/Scence/H2.gd" id="3_o0c2q"]
 [ext_resource type="Script" uid="uid://c1o4ytlwc1w6w" path="res://Scripts/Ineractable/Interactable.gd" id="5_5n4x1"]
+[ext_resource type="Script" uid="uid://24v6yydxrnlq" path="res://Scripts/Tool/Items/FlagSwitch.gd" id="5_edih7"]
+[ext_resource type="Texture2D" uid="uid://c7a1i1qbaijee" path="res://Assert/H2/door.png" id="6_b33nw"]
 [ext_resource type="PackedScene" uid="uid://45j8s88nje65" path="res://Scene/UI/DialogBubble.tscn" id="6_sry3j"]
 [ext_resource type="Texture2D" uid="uid://bvuexciqak3pg" path="res://Assert/Texture/Light.png" id="7_sry3j"]
 [ext_resource type="Script" uid="uid://dlyc2t0mc3jxc" path="res://Scripts/Tool/Scene/Light/TVlight.gd" id="8_5w5op"]
@@ -50,13 +52,25 @@ metadata/_custom_type_script = "uid://bsifaj80mr7h8"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/ToH1" index="0"]
 shape = SubResource("CircleShape2D_dswhy")
 
-[node name="ToH3" type="Area2D" parent="BackGround" index="2"]
+[node name="FlagSwitch" type="Node2D" parent="BackGround" index="2"]
+script = ExtResource("5_edih7")
+flag = "h2a_unlocked"
+metadata/_custom_type_script = "uid://24v6yydxrnlq"
+
+[node name="ToH2A" type="Area2D" parent="BackGround/FlagSwitch" index="0"]
+position = Vector2(16, -221)
+script = ExtResource("2_vltvp")
+target_path = "uid://n6sohamcj6nq"
+texture = ExtResource("6_b33nw")
+metadata/_custom_type_script = "uid://bsifaj80mr7h8"
+
+[node name="ToH3" type="Area2D" parent="BackGround/FlagSwitch" index="1"]
 position = Vector2(36, -219)
 script = ExtResource("2_vltvp")
 target_path = "uid://203y4e4rnlik"
 metadata/_custom_type_script = "uid://bsifaj80mr7h8"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/ToH3" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/FlagSwitch/ToH3" index="0"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_vltvp")
 
@@ -109,7 +123,6 @@ position = Vector2(78, 482)
 script = ExtResource("10_q27ed")
 item = ExtResource("11_b33nw")
 texture = ExtResource("12_l4453")
-allow_item = null
 metadata/_custom_type_script = "uid://deh7s74e8vn8f"
 
 [connection signal="interact" from="BackGround/Granny" to="BackGround" method="_on_granny_interact"]
